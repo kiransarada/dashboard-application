@@ -6,3 +6,6 @@
 /DashboardApplication/obj
 /DashboardApplication/bin
 /DashboardApplication/wwwroot
+/DashboardApplication/node_modules
+/DashboardApplication/ClientApp/**/*.js
+/DashboardApplication/ClientApp/**/*.map
