@@ -1,1 +1,17 @@
-﻿<h1>Hello</h1>
+﻿<h1>Dashboard</h1>
+<div *ngIf="users && users.length > 0">
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user?.id }}</td>
+            <td>{{ user?.name }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -26,7 +26,7 @@ namespace DashboardApplication
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                app.UseWebpackDevMiddleware();
             }
             else
             {

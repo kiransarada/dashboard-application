@@ -7,7 +7,8 @@ module.exports = () => {
         },
         output: {
             filename: "bundle.js",
-            path: __dirname + "/wwwroot/app"
+            path: __dirname + "/wwwroot/app",
+            publicPath: "/app/"
         },
         resolve: {
             extensions: [".ts", ".js"]
