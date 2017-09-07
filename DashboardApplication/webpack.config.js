@@ -1,4 +1,4 @@
-﻿var CopyWebpackPlugin = require("copy-webpack-plugin");
+﻿const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = () => {
     return {
@@ -34,7 +34,8 @@ module.exports = () => {
         },
         plugins: [
             new CopyWebpackPlugin([
-                { context: "ClientApp/app", from: "**/*.html", to: "" }
+                { context: "ClientApp/app", from: "**/*.html", to: "" },
+                { from: "node_modules/bootstrap/dist/css/bootstrap.min.css", to: "../css/bootstrap" }
             ])
         ]
     };
