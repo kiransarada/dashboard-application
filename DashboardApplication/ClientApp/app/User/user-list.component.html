@@ -1,0 +1,27 @@
+﻿<table *ngIf="users && users.length > 0" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th class="col-xs-3 col-md-1">Id</th>
+        <th class="col-xs-11 col-md-9">Name</th>
+        <th class="col-xs-4 col-md-2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+        <td>{{ user?.id }}</td>
+        <td>{{ user?.name }}</td>
+        <td class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-warning btn-block" data-toggle="tooltip" title="Edit">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-danger btn-block" data-toggle="tooltip" title="Delete">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
