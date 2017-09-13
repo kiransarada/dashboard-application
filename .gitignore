@@ -9,3 +9,5 @@
 /DashboardApplication/node_modules
 /DashboardApplication/ClientApp/**/*.js
 /DashboardApplication/ClientApp/**/*.map
+/Dashboard.Database/bin
+/Dashboard.Database/obj
