@@ -12,12 +12,14 @@
         <td>{{ user?.name }}</td>
         <td class="row">
             <div class="col-md-6">
-                <button type="button" class="btn btn-warning btn-block" data-toggle="tooltip" title="Edit">
+                <button type="button" class="btn btn-warning btn-block" 
+                        data-toggle="tooltip" title="Edit" (click)="openEditUserModal(user)">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </button>
             </div>
             <div class="col-md-6">
-                <button type="button" class="btn btn-danger btn-block" data-toggle="tooltip" title="Delete">
+                <button type="button" class="btn btn-danger btn-block" 
+                        data-toggle="tooltip" title="Delete">
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
             </div>

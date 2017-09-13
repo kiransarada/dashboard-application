@@ -10,6 +10,7 @@ import { UserService } from "./user.service";
 @NgModule({
     imports: [CommonModule, FormsModule],
     declarations: [UserDashboardComponent, UserFormComponent, UserListComponent],
+    entryComponents: [UserFormComponent],
     exports: [UserDashboardComponent],
     providers: [UserService]
 })

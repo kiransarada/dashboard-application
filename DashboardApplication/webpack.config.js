@@ -36,9 +36,7 @@ module.exports = () => {
             new CopyWebpackPlugin([
                 { context: "ClientApp/app", from: "**/*.html", to: "" },
                 { from: "node_modules/bootstrap/dist/css/bootstrap.min.css", to: "../lib/bootstrap/css" },
-                { from: "node_modules/bootstrap/dist/js/bootstrap.min.js", to: "../lib/bootstrap/js" },
-                { from: "node_modules/bootstrap/dist/fonts", to: "../lib/bootstrap/fonts" },
-                { from: "node_modules/jquery/dist/jquery.min.js", to: "../lib/jquery"}
+                { from: "node_modules/bootstrap/dist/fonts", to: "../lib/bootstrap/fonts" }
             ])
         ]
     };
