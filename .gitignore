@@ -11,3 +11,5 @@
 /DashboardApplication/ClientApp/**/*.map
 /Dashboard.Database/bin
 /Dashboard.Database/obj
+*.jfm
+*.dbmdl

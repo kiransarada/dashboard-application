@@ -1,8 +1,8 @@
 ﻿import { Component } from "@angular/core";
-import { BsModalService } from "ngx-bootstrap/modal";
-import { BsModalRef } from "ngx-bootstrap/modal/modal-options.class";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 import { UserFormComponent } from "./user-form.component";
+import { StaticModalConfig } from "../Shared/modal.config";
 
 @Component({
     selector: "sg-user-dashboard",
@@ -11,11 +11,11 @@ import { UserFormComponent } from "./user-form.component";
 
 export class UserDashboardComponent {
     bsModalRef: BsModalRef;
-
+    
     constructor(private readonly modalService: BsModalService) { }
 
     openAddUserModal() {
-        this.bsModalRef = this.modalService.show(UserFormComponent);
+        this.bsModalRef = this.modalService.show(UserFormComponent, StaticModalConfig);
         const userFormComponent = this.bsModalRef.content as UserFormComponent;
         userFormComponent.title = "Add New User";
     }
