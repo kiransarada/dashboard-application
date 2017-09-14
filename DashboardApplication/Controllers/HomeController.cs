@@ -1,9 +1,9 @@
-﻿using System.Diagnostics;
-using DashboardApplication.Models;
-using Microsoft.AspNetCore.Mvc;
-
-namespace DashboardApplication.Controllers
+﻿namespace DashboardApplication.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
+    using Models;
+
     public class HomeController : Controller
     {
         public IActionResult Index()

@@ -34,6 +34,6 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.bsModalRef = this.modalService.show(UserFormComponent, StaticModalConfig);
         const userFormComponent = this.bsModalRef.content as UserFormComponent;
         userFormComponent.title = "Edit User";
-        userFormComponent.user = user;
+        userFormComponent.user = Object.assign({}, user);
     }
 }

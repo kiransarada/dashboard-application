@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace DashboardApplication
+﻿namespace DashboardApplication
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using DataProviders;
+    using DataProviders.Interfaces;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -17,6 +19,8 @@ namespace DashboardApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IConnectionProvider>(new ConnectionProvider(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddTransient<IUserDataProvider, UserDataProvider>();
             services.AddMvc();
         }
 
