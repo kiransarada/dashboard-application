@@ -1,7 +1,9 @@
 ﻿import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
 import { BsModalRef } from "ngx-bootstrap/modal";
 
 import { IUser } from "./user.interface";
+import { UserService } from "./user.service";
 
 @Component({
     selector: "sg-user-form",
@@ -13,14 +15,18 @@ export class UserFormComponent {
     isSaving = false;
     user = {} as IUser;
 
-    constructor(public bsModalRef: BsModalRef) { }
+    constructor(public bsModalRef: BsModalRef,
+                private readonly userService: UserService) { }
     
-    onSubmit() {
+    onSubmit(form: NgForm) {
         this.isSaving = true;
-        setTimeout(() => {
-            console.log(this.user);
+        this.userService.save(this.user).subscribe(isSuccess => {
             this.isSaving = false;
-        }, 2000);
+            if (isSuccess) {
+                this.userService.loadUsers();
+            }
+            form.reset(this.user);
+        });
     }
 
     get saveText(): string {

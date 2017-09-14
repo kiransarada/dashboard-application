@@ -21,5 +21,11 @@
         {
             return await dataProvider.GetUsersAsync();
         }
+
+        [HttpPost("Save")]
+        public async Task<bool> Save([FromBody] User user)
+        {
+            return await dataProvider.InsertUpdateUserAsync(user);
+        }
     }
 }

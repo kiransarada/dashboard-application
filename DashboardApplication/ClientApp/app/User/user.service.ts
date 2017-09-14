@@ -18,7 +18,11 @@ export class UserService {
             this.userSubject.next(users);
         });
     }
-
+    
+    save(user: IUser): Observable<boolean> {
+        return this.http.post<boolean>(`${this.serviceBaseUrl}/users/save`, user);
+    }
+    
     onComponentDestroy() {
         this.userSubject.next(undefined);
     }
@@ -26,4 +30,5 @@ export class UserService {
     private getUsers(): Observable<IUser[]> {
         return this.http.get<IUser[]>(`${this.serviceBaseUrl}/users`);
     }
+
 }

@@ -20,8 +20,21 @@
         {
             using (var connection = await connectionProvider.OpenSqlConnectionAsync())
             {
-                var result = await connection.QueryAsync<User>("spGetUser", commandType: CommandType.StoredProcedure);
+                var result = await connection.QueryAsync<User>("dbo.spGetUser", commandType: CommandType.StoredProcedure);
                 return result.AsList();
+            }
+        }
+
+        public async Task<bool> InsertUpdateUserAsync(User user)
+        {
+            using (var connection = await connectionProvider.OpenSqlConnectionAsync())
+            {
+                var param = new DynamicParameters();
+                param.Add("@id", user.Id);
+                param.Add("@name", user.Name);
+                param.Add("@returnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+                connection.Execute("dbo.spInsertUpdateUser", param, commandType: CommandType.StoredProcedure);
+                return (param.Get<int>("@returnValue") == 0);
             }
         }
     }
