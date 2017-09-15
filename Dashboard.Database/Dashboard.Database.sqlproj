@@ -77,5 +77,6 @@
   <ItemGroup>
     <Build Include="dbo\Programmability\Stored Procedures\spGetUser.sql" />
     <Build Include="dbo\Programmability\Stored Procedures\spInsertUpdateUser.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\spDeleteUser.sql" />
   </ItemGroup>
 </Project>

@@ -9,5 +9,7 @@
         Task<List<User>> GetUsersAsync();
 
         Task<bool> InsertUpdateUserAsync(User user);
+
+        Task<bool> DeleteUserAsync(User user);
     }
 }

@@ -37,5 +37,17 @@
                 return (param.Get<int>("@returnValue") == 0);
             }
         }
+
+        public async Task<bool> DeleteUserAsync(User user)
+        {
+            using (var connection = await connectionProvider.OpenSqlConnectionAsync())
+            {
+                var param = new DynamicParameters();
+                param.Add("@id", user.Id);
+                param.Add("@returnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+                connection.Execute("dbo.spDeleteUser", param, commandType: CommandType.StoredProcedure);
+                return (param.Get<int>("@returnValue") == 0);
+            }
+        }
     }
 }

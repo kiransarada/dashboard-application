@@ -36,4 +36,12 @@ export class UserListComponent implements OnInit, OnDestroy {
         userFormComponent.formType = FormType.Edit;
         userFormComponent.user = Object.assign({}, user);
     }
+
+    deleteUser(deletedUser: IUser) {
+        this.userService.delete(deletedUser).subscribe(isSuccess => {
+            if (isSuccess) {
+                this.users = this.users.filter(user => user.id !== deletedUser.id);
+            }
+        });
+    }
 }

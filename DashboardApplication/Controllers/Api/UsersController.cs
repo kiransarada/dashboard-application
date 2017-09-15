@@ -27,5 +27,11 @@
         {
             return await dataProvider.InsertUpdateUserAsync(user);
         }
+
+        [HttpPost("Delete")]
+        public async Task<bool> Delete([FromBody] User user)
+        {
+            return await dataProvider.DeleteUserAsync(user);
+        }
     }
 }
