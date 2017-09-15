@@ -5,14 +5,19 @@ import { BsModalRef } from "ngx-bootstrap/modal";
 import { IUser } from "./user.interface";
 import { UserService } from "./user.service";
 
+export const enum FormType {
+    Add,
+    Edit
+}
+
 @Component({
     selector: "sg-user-form",
     templateUrl: "app/User/user-form.component.html"
 })
 
 export class UserFormComponent {
-    title: string;
     isSaving = false;
+    formType: FormType;
     user = {} as IUser;
 
     constructor(public bsModalRef: BsModalRef,
@@ -29,11 +34,18 @@ export class UserFormComponent {
         });
     }
 
-    get saveText(): string {
-        if (this.isSaving) {
-            return "Saving...";
+    get title(): string {
+        switch (this.formType) {
+            case FormType.Add:
+                return "Add New User";
+            case FormType.Edit:
+                return "Edit User";
+            default:
+                return undefined;
         }
+    }
 
-        return "Save";
+    get saveText(): string {
+        return (this.isSaving) ? "Saving..." : "Save";
     }
 }

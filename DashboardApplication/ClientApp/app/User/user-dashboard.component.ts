@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
-import { UserFormComponent } from "./user-form.component";
+import { UserFormComponent, FormType } from "./user-form.component";
 import { StaticModalConfig } from "../Shared/modal.config";
 
 @Component({
@@ -17,6 +17,6 @@ export class UserDashboardComponent {
     openAddUserModal() {
         this.bsModalRef = this.modalService.show(UserFormComponent, StaticModalConfig);
         const userFormComponent = this.bsModalRef.content as UserFormComponent;
-        userFormComponent.title = "Add New User";
+        userFormComponent.formType = FormType.Add;
     }
 }
