@@ -27,13 +27,18 @@ export class UserFormComponent {
         this.isSaving = true;
         this.userService.save(this.user).subscribe(isSuccess => {
             this.isSaving = false;
+
             if (isSuccess) {
                 this.userService.loadUsers();
+                if (this.formType === FormType.Add) {
+                    this.bsModalRef.hide();
+                }
             }
+
             form.reset(this.user);
         });
     }
-
+    
     get title(): string {
         switch (this.formType) {
             case FormType.Add:
