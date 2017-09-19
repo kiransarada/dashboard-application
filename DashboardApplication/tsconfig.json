@@ -9,7 +9,14 @@
     "target": "es2015",
     "lib": [ "es2016", "dom" ],
     "module": "commonjs",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "jasmine",
+      "webpack-env"
+    ]
   },
   "exclude": [
     "node_modules",
