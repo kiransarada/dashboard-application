@@ -19,7 +19,7 @@
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
-        singleRun: false,
+        singleRun: true,
         browsers: ["Chrome"],
         concurrency: Infinity
     });
