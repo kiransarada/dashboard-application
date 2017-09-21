@@ -11,7 +11,7 @@
         mime: {
             "application/javascript": ["ts"]
         },
-        webpack: require("../../webpack.config.js"),
+        webpack: require("../../webpack.config.js")(),
         webpackMiddleware: {
             stats: "errors-only"
         },
