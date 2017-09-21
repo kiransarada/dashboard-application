@@ -9,7 +9,7 @@ import { StaticModalConfig } from "../Shared/modal.config";
 
 @Component({
     selector: "sg-user-list",
-    templateUrl: "app/User/user-list.component.html"
+    templateUrl: "./user-list.component.html"
 })
 
 export class UserListComponent implements OnInit, OnDestroy {

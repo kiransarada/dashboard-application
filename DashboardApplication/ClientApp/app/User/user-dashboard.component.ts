@@ -6,7 +6,7 @@ import { StaticModalConfig } from "../Shared/modal.config";
 
 @Component({
     selector: "sg-user-dashboard",
-    templateUrl: "app/User/user-dashboard.component.html"
+    templateUrl: "./user-dashboard.component.html"
 })
 
 export class UserDashboardComponent {

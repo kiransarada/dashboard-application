@@ -3,6 +3,7 @@ var webpack = require("webpack");
 
 module.exports = () => {
     return {
+        devtool: "source-map",
         entry: {
             main: "./ClientApp/main.ts"
         },
@@ -28,7 +29,11 @@ module.exports = () => {
                 },
                 {
                     test: /\.ts$/,
-                    loaders: ["ts-loader"]
+                    loaders: ["awesome-typescript-loader", "angular2-template-loader"]
+                },
+                {
+                    test: /\.html$/,
+                    loader: "html-loader?minimize=false"
                 }
             ]
         },
@@ -41,7 +46,6 @@ module.exports = () => {
                 {} // a map of your routes
             ),
             new copyWebpackPlugin([
-                { context: "ClientApp/app", from: "**/*.html", to: "" },
                 { from: "Contents/css/Site.css", to: "../css/Site.css" },
                 { from: "node_modules/bootstrap/dist/css/bootstrap.min.css", to: "../lib/bootstrap/css" },
                 { from: "node_modules/bootstrap/dist/fonts", to: "../lib/bootstrap/fonts" }

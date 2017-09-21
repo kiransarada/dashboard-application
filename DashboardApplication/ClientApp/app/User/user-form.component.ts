@@ -12,7 +12,7 @@ export const enum FormType {
 
 @Component({
     selector: "sg-user-form",
-    templateUrl: "app/User/user-form.component.html"
+    templateUrl: "./user-form.component.html"
 })
 
 export class UserFormComponent {
