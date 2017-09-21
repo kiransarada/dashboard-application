@@ -3,7 +3,7 @@
   "name": "dashboard",
   "private": true,
   "scripts": {
-    "webpack": "webpack"
+    "build": "webpack"
   },
   "dependencies": {
     "@angular/common": "~4.3.6",
