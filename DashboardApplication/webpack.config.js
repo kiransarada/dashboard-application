@@ -28,8 +28,7 @@ module.exports = () => {
                 },
                 {
                     test: /\.ts$/,
-                    loaders: ["ts-loader"],
-                    exclude: [/\.(spec|e2e|d)\.ts$/, /typings$/]
+                    loaders: ["ts-loader"]
                 }
             ]
         },
