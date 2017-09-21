@@ -1,4 +1,5 @@
-﻿const CopyWebpackPlugin = require("copy-webpack-plugin");
+﻿var copyWebpackPlugin = require("copy-webpack-plugin");
+var webpack = require("webpack");
 
 module.exports = () => {
     return {
@@ -33,7 +34,14 @@ module.exports = () => {
             ]
         },
         plugins: [
-            new CopyWebpackPlugin([
+            // Workaround for angular/angular#11580
+            new webpack.ContextReplacementPlugin(
+                // The (\\|\/) piece accounts for path separators in *nix and Windows
+                /angular(\\|\/)core(\\|\/)@angular/,
+                __dirname + "/ClientApp", // location of your src
+                {} // a map of your routes
+            ),
+            new copyWebpackPlugin([
                 { context: "ClientApp/app", from: "**/*.html", to: "" },
                 { from: "Contents/css/Site.css", to: "../css/Site.css" },
                 { from: "node_modules/bootstrap/dist/css/bootstrap.min.css", to: "../lib/bootstrap/css" },

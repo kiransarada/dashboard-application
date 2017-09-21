@@ -3,7 +3,7 @@
   "name": "dashboard",
   "private": true,
   "scripts": {
-    "webpack": "webpack",
+    "build": "webpack",
     "test": "karma start ClientApp/test/karma.conf.js"
   },
   "dependencies": {
