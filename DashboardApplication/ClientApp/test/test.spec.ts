@@ -1,9 +1,11 @@
 ﻿import { TestBed, ComponentFixture, async } from "@angular/core/testing";
-import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { NO_ERRORS_SCHEMA, DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
 import { AppComponent } from "../app/app.component";
 
 describe("AppComponent", () => {
     let componentFixture: ComponentFixture<AppComponent>;
+    let debugElement: DebugElement;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -14,9 +16,11 @@ describe("AppComponent", () => {
         TestBed.compileComponents();
     }));
 
-    it("should get 'Test' as projectName header title", () => {
+    it("should have 'Dashboard' on header text", () => {
         componentFixture = TestBed.createComponent(AppComponent);
+        debugElement = componentFixture.debugElement;
         componentFixture.detectChanges();
-        expect(componentFixture.componentInstance).toBeDefined();
+        const headerElement = debugElement.query(By.css(".page-header h1")).nativeElement;
+        expect(headerElement.textContent).toContain("Dashboard");
     });
 });

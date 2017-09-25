@@ -1,6 +1,6 @@
 ﻿var webpackConfig = require("../../webpack.config.js")();
 
-module.exports = function (config) {
+module.exports = (config) => {
     config.set({
         basePath: ".",
         frameworks: ["jasmine"],
@@ -15,7 +15,7 @@ module.exports = function (config) {
         },
         webpack: Object.assign({}, webpackConfig, { entry: undefined }),
         webpackMiddleware: {
-            stats: "verbose"
+            stats: "error-only"
         },
         reporters: ["progress"],
         port: 9876,
