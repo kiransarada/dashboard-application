@@ -28,6 +28,7 @@
     "awesome-typescript-loader": "^3.2.3",
     "codelyzer": "^3.1.2",
     "copy-webpack-plugin": "^4.0.1",
+    "gulp": "^3.9.1",
     "html-loader": "^0.5.1",
     "jasmine": "^2.6.0",
     "karma": "^1.7.1",
