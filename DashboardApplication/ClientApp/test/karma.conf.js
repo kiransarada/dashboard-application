@@ -14,13 +14,13 @@ module.exports = (config) => {
             "./test.main.ts": ["webpack"]
         },
         mime: {
-            "application/javascript": ["ts"]
+            "text/x-typescript": ["ts"]
         },
         webpack: webpackConfig,
         webpackMiddleware: {
             stats: "error-only"
         },
-        reporters: ["progress"],
+        reporters: ["spec"],
         port: 9876,
         colors: true,
         logLevel: config.LOG_ERROR,
