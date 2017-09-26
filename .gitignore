@@ -13,4 +13,5 @@
 /Dashboard.Database/obj
 *.jfm
 *.dbmdl
+*.user
 !karma.conf.js
