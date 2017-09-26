@@ -1,4 +1,7 @@
-﻿var webpackConfig = require("../../webpack.config.js")();
+﻿// reuse existing webpack.config
+// remove entry value since karma-webpack will set its value automatically
+var webpackConfig = require("../../webpack.config.js")();
+webpackConfig.entry = undefined;
 
 module.exports = (config) => {
     config.set({
@@ -13,7 +16,7 @@ module.exports = (config) => {
         mime: {
             "application/javascript": ["ts"]
         },
-        webpack: Object.assign({}, webpackConfig, { entry: undefined }),
+        webpack: webpackConfig,
         webpackMiddleware: {
             stats: "error-only"
         },
