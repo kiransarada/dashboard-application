@@ -30,6 +30,10 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.userService.onComponentDestroy();
     }
 
+    getStatusText(user: IUser): string {
+        return user.isActive ? "Active" : "Inactive";
+    }
+
     openEditUserModal(user: IUser) {
         this.bsModalRef = this.modalService.show(UserFormComponent, StaticModalConfig);
         const userFormComponent = this.bsModalRef.content as UserFormComponent;

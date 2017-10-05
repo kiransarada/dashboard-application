@@ -2,7 +2,8 @@
     <thead>
     <tr>
         <th class="col-xs-3 col-md-1">Id</th>
-        <th class="col-xs-11 col-md-9">Name</th>
+        <th class="col-xs-8 col-md-6">Name</th>
+        <th class="col-xs-4 col-md-2">Status</th>
         <th class="col-xs-4 col-md-2">Action</th>
     </tr>
     </thead>
@@ -10,6 +11,7 @@
     <tr *ngFor="let user of users">
         <td>{{ user?.id }}</td>
         <td>{{ user?.name }}</td>
+        <td>{{ getStatusText(user) }}</td>
         <td class="row">
             <div class="col-md-6">
                 <button type="button" class="btn btn-warning btn-block" 
