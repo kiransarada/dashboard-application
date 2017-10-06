@@ -32,6 +32,7 @@
                 var param = new DynamicParameters();
                 param.Add("@id", user.Id);
                 param.Add("@name", user.Name);
+                param.Add("@isActive", user.IsActive);
                 param.Add("@returnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
                 connection.Execute("dbo.spInsertUpdateUser", param, commandType: CommandType.StoredProcedure);
                 return (param.Get<int>("@returnValue") == 0);

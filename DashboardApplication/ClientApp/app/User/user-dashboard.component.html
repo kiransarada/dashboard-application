@@ -1,9 +1,25 @@
 ﻿<div class="panel panel-default">
     <div class="panel-heading">Users</div>
-    <div class="panel-body">
-        <button type="button" class="btn btn-primary" (click)="openAddUserModal()">
-            <span class="glyphicon glyphicon-plus"></span> Add User
-        </button>
+    <div class="panel-body row">
+        <div class="col-md-8">
+            <button type="button" class="btn btn-primary" (click)="openAddUserModal()">
+                <span class="glyphicon glyphicon-plus"></span> Add User
+            </button>
+        </div>
+        <div class="col-md-4">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="viewSelector" class="col-sm-3 control-label">View : </label>
+                    <div class="col-sm-9">
+                        <select name="viewSelector" class="form-control" [(ngModel)]="viewFilter" id="viewSelector">
+                            <option value="All">All</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <sg-user-list></sg-user-list>
+    <sg-user-list [viewFilter]="viewFilter"></sg-user-list>
 </div>

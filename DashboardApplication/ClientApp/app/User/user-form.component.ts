@@ -18,12 +18,12 @@ export const enum FormType {
 export class UserFormComponent {
     isSaving = false;
     formType: FormType;
-    user = {} as IUser;
+    user = { isActive: true } as IUser;
 
     constructor(public bsModalRef: BsModalRef,
                 private readonly userService: UserService) { }
     
-    onSubmit(form: NgForm) {
+    onSubmit(ngForm: NgForm) {
         this.isSaving = true;
         this.userService.save(this.user).subscribe(isSuccess => {
             this.isSaving = false;
@@ -35,7 +35,7 @@ export class UserFormComponent {
                 }
             }
 
-            form.reset(this.user);
+            ngForm.form.markAsPristine();
         });
     }
     
