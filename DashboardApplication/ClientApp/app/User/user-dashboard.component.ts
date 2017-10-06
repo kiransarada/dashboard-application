@@ -11,6 +11,7 @@ import { StaticModalConfig } from "../Shared/modal.config";
 
 export class UserDashboardComponent {
     bsModalRef: BsModalRef;
+    viewFilter = "All";
     
     constructor(private readonly modalService: BsModalService) { }
 
