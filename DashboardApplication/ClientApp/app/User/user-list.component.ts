@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, OnDestroy } from "@angular/core";
+﻿import { Component, OnInit, OnChanges, SimpleChanges, OnDestroy, Input } from "@angular/core";
 import { Subscription } from "rxjs/Subscription";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
@@ -12,17 +12,35 @@ import { StaticModalConfig } from "../Shared/modal.config";
     templateUrl: "./user-list.component.html"
 })
 
-export class UserListComponent implements OnInit, OnDestroy {
+export class UserListComponent implements OnInit, OnChanges, OnDestroy {
+    @Input() viewFilter: string;
+
     users: IUser[];
+    statusFilter: boolean;
     bsModalRef: BsModalRef;
     userSubsription: Subscription;
-
+    
     constructor(private readonly userService: UserService,
                 private readonly modalService: BsModalService) { }
 
     ngOnInit(): void {
         this.userSubsription = this.userService.$users.subscribe(users => this.users = users);
         this.userService.loadUsers();
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.hasOwnProperty("viewFilter")) {
+            switch (this.viewFilter) {
+                case "Active":
+                    this.statusFilter = true;
+                    break;
+                case "Inactive":
+                    this.statusFilter = false;
+                    break;
+                default:
+                    this.statusFilter = undefined;
+            }
+        }
     }
 
     ngOnDestroy(): void {

@@ -8,7 +8,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users | sgFilter:'isActive':true">
+    <tr *ngFor="let user of users | sgFilter:'isActive':statusFilter">
         <td>{{ user?.id }}</td>
         <td>{{ user?.name }}</td>
         <td>{{ getStatusText(user) }}</td>
