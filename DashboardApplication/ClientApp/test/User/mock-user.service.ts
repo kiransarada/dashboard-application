@@ -7,9 +7,14 @@ export class MockUserService {
     private userSubject = new Subject<IUser[]>();
     $users = this.userSubject.asObservable();
 
+    private mockUsers = [
+        { id: 1, name: "John", isActive: true },
+        { id: 2, name: "Emily", isActive: false },
+        { id: 3, name: "Drone", isActive: true }
+    ] as IUser[];
+
     loadUsers() {
-        const mockUsers = [{ id: 1, name: "John" }] as IUser[];
-        this.userSubject.next(mockUsers);
+        this.userSubject.next(this.mockUsers);
     }
 
     save(user: IUser): Observable<boolean> {

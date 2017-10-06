@@ -32,10 +32,23 @@ describe("UserModule (Integration)", () => {
         userDashboardDebugElement = componentFixture.debugElement;
         componentFixture.detectChanges();
     });
-
-    it("should have 1 user listed on the first load", () => {
+    
+    it("should be able to filter by status", () => {
         const userListDebugElement = userDashboardDebugElement.query(By.css("sg-user-list"));
         const userListComponent = userListDebugElement.componentInstance as UserListComponent;
-        expect(userListComponent.users.length).toEqual(1);
+        const tBodyDebugElement = userListDebugElement.query(By.css("table tbody"));
+
+        const allUsersLength = userListComponent.users.length;
+        expect(tBodyDebugElement.children.length).toEqual(allUsersLength);
+        
+        const activeUsersLength = userListComponent.users.filter(user => user.isActive).length;
+        userDashboardComponent.viewFilter = "Active";
+        componentFixture.detectChanges();
+        expect(tBodyDebugElement.children.length).toEqual(activeUsersLength);
+
+        const inactiveUsersLength = userListComponent.users.filter(user => !user.isActive).length;
+        userDashboardComponent.viewFilter = "Inactive";
+        componentFixture.detectChanges();
+        expect(tBodyDebugElement.children.length).toEqual(inactiveUsersLength);
     });
 });
